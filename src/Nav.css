@@ -1,0 +1,13 @@
+li {
+  display: inline;
+  padding-right: 5px;
+  list-style: square;
+}
+
+ul {
+  background-color: tomato;
+}
+
+li:hover {
+  color: green;
+}
