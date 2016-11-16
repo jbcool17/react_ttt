@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
-import SquareRow from './SquareRow';
-// import './Board.css';
+import './Board.css';
+
+var boardKeys = [[11,12,13],[21,22,23],[31,32,33]]
 
 class Board extends Component {
   render() {
-    return (
-      <div>
-      	<p onClick={this.props.onClick}> {this.props.score} </p>
+  	var rowNodes = this.props.currentBoardDisplay.map(function(a, i){
 
-      	<SquareRow onClick={this.props.onClick} startNumber={[0,1,2]}/>
-      	<SquareRow startNumber={[3,4,5]}/>
-      	<SquareRow startNumber={[6,7,8]}/>
+  		var squareNodes = a.map(function(b,k){
+  			var id = boardKeys[i][k];
+  			return <div className="square" key={id} id={id}>{b}</div>;
+  		})
+
+  		return <div className="row" key={i}>{squareNodes}</div>;
+  	})
+  	
+    return (
+      <div onClick={this.props.onClick}>
+		{rowNodes}
       </div>
     );
   }

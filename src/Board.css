@@ -1,14 +1,15 @@
-.Square {
+.square {
 	width: 150px;
 	height: 150px;
 	background-color: red;
 	color:white;
 	font-weight: bold;
+	font-size: 8em;
 	border: 1px solid black;
 	display: inline-block;
 	vertical-align: middle;
 }
 
-.Square:hover {
+.square:hover {
 	background-color: yellowgreen;
 }

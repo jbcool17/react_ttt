@@ -5,6 +5,8 @@ var Square = React.createClass({
 	handleClick: function(e){
 		console.log("Square: " + e.target.id)
 		document.getElementById(e.target.id).style.backgroundColor = 'blue'
+		var node = document.createTextNode("test");  
+		document.getElementById(e.target.id).appendChild(node)
 	},
 	handleHover: function(e){
 		console.log("hover: " + e.target.id)
