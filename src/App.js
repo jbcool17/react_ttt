@@ -1,16 +1,24 @@
-import React, { Component } from 'react';
-// import logo from './logo.svg';
+import React from 'react';
 import Board from './Board';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="container">
-        <Board />
-      </div>
-    );
-  }
-}
+var App = React.createClass({
+	getInitialState: function() {
+		return {
+			score: 0
+		}	
+	},
+	handleClick: function(e){
+		console.log("App: " + e.target)
+		this.setState({score: this.state.score + 1 })
+	},
+	render: function(){
+		return (
+      		<div className="container">
+        		<Board className="Board" onClick={this.handleClick} score={this.state.score}/>
+      		</div>
+    	);
+	}
+});
 
-export default App;
+module.exports = App;
