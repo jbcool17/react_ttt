@@ -10,11 +10,11 @@ var App = React.createClass({
 			turnX: true,
 			currentPlayer: 'X',
 			currentBoardDisplay: [[null, null, null],
-        						[null, null, null],
-        						[null, null, null]],
-        	xBoardState: [],
-        	oBoardState: [],
-        	STATUS: 'NOT FOUND'
+        						        [null, null, null],
+        						        [null, null, null]],
+      xBoardState: [],
+      oBoardState: [],
+      STATUS: 'NOT FOUND'
 		}
 	},
 	handleClick: function(e){
@@ -24,9 +24,8 @@ var App = React.createClass({
 		var idArray = squareId.toString()
                           .split('')
                           .map(function(n){ return (parseInt(n, 10) - 1)
-                          .toString() });
-
-		var cbs = this.state.currentBoardDisplay,
+                          .toString() }),
+		    cbs = this.state.currentBoardDisplay,
 			  xbs = this.state.xBoardState,
 			  obs = this.state.oBoardState,
 			  currentSquare = cbs[idArray[0]][idArray[1]],
@@ -49,7 +48,6 @@ var App = React.createClass({
 					STATUS: checkForWinner(currentPlayer, xbs) ? "X Is The Winner!" : "NOT FOUND"
 				});
 
-
 			} else {
 
 				obs.push(squareId);
@@ -66,8 +64,6 @@ var App = React.createClass({
 			this.setState({ currentBoardDisplay: cbs })
 
 		}
-
-
 
 	},
   resetBoard: function(){
