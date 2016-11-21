@@ -2,6 +2,7 @@
   "name": "react_ttt",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://www.onlytheclouds.com/react_ttt",
   "devDependencies": {
     "react-scripts": "0.7.0"
   },
