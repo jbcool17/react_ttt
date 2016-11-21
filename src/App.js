@@ -14,7 +14,7 @@ var App = React.createClass({
         						        [null, null, null]],
       xBoardState: [],
       oBoardState: [],
-      STATUS: 'NOT FOUND'
+      STATUS: 'GAME IN PROGRESS'
 		}
 	},
 	handleClick: function(e){
@@ -32,7 +32,7 @@ var App = React.createClass({
         currentPlayer = this.state.currentPlayer;
 
 		//Checkout Square / STATUS of game OVER?
-		if ( currentSquare === null && this.state.STATUS === 'NOT FOUND') {
+		if ( currentSquare === null && this.state.STATUS === 'GAME IN PROGRESS') {
 
 			cbs[idArray[0]][idArray[1]] = currentPlayer
 
@@ -45,7 +45,7 @@ var App = React.createClass({
 					turnX:false,
 					currentPlayer: 'O',
 					xBoardState: xbs,
-					STATUS: checkForWinner(currentPlayer, xbs) ? "X Is The Winner!" : "NOT FOUND"
+					STATUS: checkForWinner(currentPlayer, xbs) ? "X Is The Winner!" : "GAME IN PROGRESS"
 				});
 
 			} else {
@@ -56,7 +56,7 @@ var App = React.createClass({
 					turnX:true,
 					currentPlayer: 'X',
 					oBoardState: obs,
-					STATUS: checkForWinner(currentPlayer, obs) ? "O Is The Winner!" : "NOT FOUND"
+					STATUS: checkForWinner(currentPlayer, obs) ? "O Is The Winner!" : "GAME IN PROGRESS"
 				});
 
 			}
@@ -79,15 +79,18 @@ var App = React.createClass({
 	render: function(){
 		return (
       		<div className="container">
-      			<p> Clicks: {this.state.clicks} | STATUS: {this.state.STATUS} </p>
-      			<p> CurrentPlayer: {this.state.currentPlayer} </p>
+            <header> STATUS: <strong>{this.state.STATUS}</strong></header>
+            <h1>Welcome to Tic Tac Toe : React</h1>
+            <div className="info">
+      			 <p> Clicks: <strong>{this.state.clicks}</strong> | Player Turn: <strong>{this.state.currentPlayer}</strong> </p>
+            </div>
         		<Board className="Board"
                     currentBoardDisplay={this.state.currentBoardDisplay}
                     onClick={this.handleClick}
                     onMouseOver={this.onMouseOver}
                     onMouseOut={this.onMouseOut}/>
 
-            <button onClick={this.resetBoard}>RESET</button>
+            <button id="reset" onClick={this.resetBoard}>RESET</button>
 
       		</div>
     	);
