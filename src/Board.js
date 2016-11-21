@@ -5,9 +5,11 @@ var boardKeys = [[11,12,13],[21,22,23],[31,32,33]]
 
 class Board extends Component {
   render() {
-    var onClick = this.props.onClick,
-        onMouseOver= this.props.onMouseOver,
-        onMouseOut= this.props.onMouseOut;
+    var onClick     = this.props.onClick,
+        onMouseOver = this.props.onMouseOver,
+        onMouseOut  = this.props.onMouseOut;
+
+// Compiles 3 Board Rows with 3 Squares Each
   	var rowNodes = this.props.currentBoardDisplay.map(function(a, i){
 
   		var squareNodes = a.map(function(b,k){

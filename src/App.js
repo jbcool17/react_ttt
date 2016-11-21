@@ -1,5 +1,5 @@
 import React from 'react';
-import checkForWinner from './checkForWinner';
+import checkForWinner from './lib/checkForWinner';
 import Board from './Board';
 import './App.css';
 

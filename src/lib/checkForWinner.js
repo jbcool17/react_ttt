@@ -9,7 +9,6 @@ var winningCombos = [[11, 12, 13],
 
 function checkForWinner(currentPlayer, squares){
   var output = false;
-  // console.log("Checking for winner: " + currentPlayer )
   if ( squares.length >= 0){
     for (var i = 0; i < winningCombos.length; i++){
       var wc = winningCombos[i],
