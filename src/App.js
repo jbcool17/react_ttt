@@ -91,7 +91,7 @@ var App = React.createClass({
                     onMouseOut={this.onMouseOut}/>
 
             <button id="reset" onClick={this.resetBoard}>RESET</button>
-
+            <footer></footer>
       		</div>
     	);
 	}
