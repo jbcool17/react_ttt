@@ -1,9 +1,9 @@
 # react-tictactoe
-
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
 > creating a tic tac toe using React
-> [React Tic Tac Toe](https://onlytheclouds.com/react_ttt/)
+
+[React Tic Tac Toe](https://onlytheclouds.com/react_ttt/)
 
 ## Table of Contents
 
