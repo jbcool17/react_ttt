@@ -9,12 +9,9 @@
 .info {
     font-family: 'Orbitron', sans-serif;
     font-size: 1.5em;
-    border: 15px solid black;
     width: 405px;
     margin: 35px auto;
-    background: crimson;
     border-radius: 15px;
-    box-shadow: 6px 16px 35px black;
 }
 
 #reset {

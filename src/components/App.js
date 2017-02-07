@@ -1,7 +1,7 @@
 import React from 'react';
-import checkForWinner from './lib/checkForWinner';
+import checkForWinner from '../utilities/checkForWinner';
 import Board from './Board';
-import './App.css';
+import '../styles/App.css';
 
 var App = React.createClass({
 	getInitialState: function() {
@@ -18,10 +18,8 @@ var App = React.createClass({
 		}
 	},
 	handleClick: function(e){
-		var squareId = e.target.id;
-		this.setState({clicks: this.state.clicks + 1 })
-
-		var idArray = squareId.toString()
+		var squareId = e.target.id,
+				idArray = squareId.toString()
                           .split('')
                           .map(function(n){ return (parseInt(n, 10) - 1)
                           .toString() }),
@@ -31,6 +29,11 @@ var App = React.createClass({
 			  currentSquare = cbs[idArray[0]][idArray[1]],
         currentPlayer = this.state.currentPlayer;
 
+		if (currentSquare === 'X' || currentSquare === 'O' || this.state.STATUS !== 'GAME IN PROGRESS'){
+			return
+		} else {
+			this.setState({clicks: this.state.clicks + 1 })
+		}
 		//Checkout Square / STATUS of game OVER?
 		if ( currentSquare === null && this.state.STATUS === 'GAME IN PROGRESS') {
 
@@ -65,10 +68,16 @@ var App = React.createClass({
 
 		}
 
+		if (this.state.clicks >= 8) {
+			this.setState({STATUS: 'YOU HAVE TIED!'})
+			document.body.style.backgroundColor = 'green';
+		}
+
 	},
   resetBoard: function(){
     this.setState(this.getInitialState())
     document.body.style.backgroundColor = "#2777AE";
+		document.getElementById('info').style.visibility = '';
   },
   onMouseOver:function(e){
     document.getElementById(e.target.id).style.backgroundColor = "#27AE5E"
@@ -81,8 +90,8 @@ var App = React.createClass({
       		<div className="container">
             <header> STATUS: <strong>{this.state.STATUS}</strong></header>
             <h1>Welcome to Tic Tac Toe : React</h1>
-            <div className="info">
-      			 <p> Clicks: <strong>{this.state.clicks}</strong> | Player Turn: <strong>{this.state.currentPlayer}</strong> </p>
+            <div className="info" id='info'>
+      			 <p> Player Turn: <strong>{this.state.currentPlayer}</strong> </p>
             </div>
         		<Board className="Board"
                     currentBoardDisplay={this.state.currentBoardDisplay}

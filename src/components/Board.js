@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Board.css';
+import '../styles/Board.css';
 
 var boardKeys = [[11,12,13],[21,22,23],[31,32,33]]
 

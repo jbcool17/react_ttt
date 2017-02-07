@@ -9,6 +9,7 @@ var winningCombos = [[11, 12, 13],
 
 function checkForWinner(currentPlayer, squares){
   var output = false;
+
   if ( squares.length >= 0){
     for (var i = 0; i < winningCombos.length; i++){
       var wc = winningCombos[i],
@@ -22,6 +23,7 @@ function checkForWinner(currentPlayer, squares){
           if (score >= 3) {
             output = true;
             document.body.style.backgroundColor = 'red';
+            document.getElementById('info').style.visibility = 'hidden';
           }
         }
       }
